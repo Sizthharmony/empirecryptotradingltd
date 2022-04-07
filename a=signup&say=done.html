@@ -1,0 +1,240 @@
+<!-- HYIPexplorerCounter -->
+<script language="JavaScript" src="//www.hyipexplorer.com/mbtnjs/bottomleft.js" type="text/javascript"></script>
+<script type="text/javascript">
+show_bottomleft('e','12029','instant_trade_ltd');</script>
+<script type="text/javascript"><!--
+ bd = "//counter.hyipexplorer.com/counter.php?id=12405"
+ ur = bd+"&w="+screen.width+"&r="+escape(document.referrer)+"&u="
+ ur += escape(document.location)+"&t="+escape(document.title)
+ ur += "&java=1"+"&sc_random="+Math.random()
+ document.write('<img src="'+ur+'" height=1 width=1 border="0">'); //--></script><noscript><a href="http://www.hyipexplorer.com/"><img src="//counter.hyipexplorer.com/counter.php?id=12405" alt="Monitor" height=1 width=1 border=0></a></noscript>
+<!-- HYIPexplorerCounter -->
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Instant Trade Ltd</title>
+	<link rel="icon" href="styles/images/favicon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap.3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css rel="stylesheet">
+	<link href='styles/animate.css' rel='stylesheet' type='text/css'>
+	<link href='styles/hover.css' rel='stylesheet' type='text/css'>
+	<link href='styles/custom.css' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax.libs.jquery.1/jquery.min.js"></script>
+	<script src='styles/setting2.js' type='text/javascript'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap.3.3.7/js/bootstrap.min.js"></script>
+	<script src="styles/wow.min.js"></script>
+  
+ 
+  <script type="text/javascript">
+//// Get the CryptoCurrency Information from the API
+jQuery.ajax({
+	url: "https://min-api.cryptocompare.com/data/pricemultifull",
+	data: "fsyms=BTC,ETH,DASH,LTC,XRP,XMR,BCH,XLM&tsyms=USD",
+	dataType : 'json',
+}).done(function(data) 
+{
+    // console.log( "BTC : " + data.RAW.BTC.USD.CHANGEPCTDAY + ", ETH : " + data.RAW.ETH.USD.CHANGEPCTDAY + ", DASH : " + data.RAW.DASH.USD.CHANGEPCTDAY + ", LTC : " + data.RAW.LTC.USD.CHANGEPCTDAY + ", XRP : " + data.RAW.XRP.USD.CHANGEPCTDAY );
+    //	console.log( "BTC : " + parseFloat(data.RAW.BTC.USD.CHANGEPCTDAY).toFixed(2) + ", ETH : " + parseFloat(data.RAW.ETH.USD.CHANGEPCTDAY).toFixed(2) + ", DASH : " + parseFloat(data.RAW.DASH.USD.CHANGEPCTDAY).toFixed(2) + ", LTC : " + parseFloat(data.RAW.LTC.USD.CHANGEPCTDAY).toFixed(2) + ", XRP : " + parseFloat(data.RAW.XRP.USD.CHANGEPCTDAY).toFixed(2) );
+
+	jQuery(".dashCoin").html('$' + data.RAW.DASH.USD.PRICE);
+	jQuery(".ethCoin").html('$' + data.RAW.ETH.USD.PRICE);
+	jQuery(".bitCoin").html('$' + data.RAW.BTC.USD.PRICE);
+	jQuery(".liteCoin").html('$' + data.RAW.LTC.USD.PRICE);
+	jQuery(".xrpCoin").html('$' + data.RAW.XRP.USD.PRICE);
+	jQuery(".xmrCoin").html('$' + data.RAW.XMR.USD.PRICE);
+	jQuery(".bchCoin").html('$' + data.RAW.BCH.USD.PRICE);
+	jQuery(".xlmCoin").html('$' + data.RAW.XLM.USD.PRICE);
+
+	var dash = parseFloat(data.RAW.DASH.USD.CHANGEPCTDAY).toFixed(2);
+	var eth  = parseFloat(data.RAW.ETH.USD.CHANGEPCTDAY).toFixed(2);
+	var btc = parseFloat(data.RAW.BTC.USD.CHANGEPCTDAY).toFixed(2);
+	var usd  = parseFloat(data.RAW.LTC.USD.CHANGEPCTDAY).toFixed(2);
+	var xrp = parseFloat(data.RAW.XRP.USD.CHANGEPCTDAY).toFixed(2);
+	var xmr  = parseFloat(data.RAW.XMR.USD.CHANGEPCTDAY).toFixed(2);
+	var bch  = parseFloat(data.RAW.BCH.USD.CHANGEPCTDAY).toFixed(2);
+	var xlm  = parseFloat(data.RAW.XLM.USD.CHANGEPCTDAY).toFixed(2);
+
+	if( dash >= 0 ) jQuery(".dashCoin_change").addClass("greenup"); else jQuery(".dashCoin_change").addClass("purpledown");
+	if( eth >= 0 ) jQuery(".ethCoin_change").addClass("greenup"); else jQuery(".ethCoin_change").addClass("purpledown");
+	if( btc >= 0 ) jQuery(".bitCoin_change").addClass("greenup"); else jQuery(".bitCoin_change").addClass("purpledown");
+	if( usd >= 0 ) jQuery(".liteCoin_change").addClass("greenup"); else jQuery(".liteCoin_change").addClass("purpledown");
+	if( xrp >= 0 ) jQuery(".xrpCoin_change").addClass("greenup"); else jQuery(".xrpCoin_change").addClass("purpledown");
+	if( xmr >= 0 ) jQuery(".xmrCoin_change").addClass("greenup"); else jQuery(".xmrCoin_change").addClass("purpledown");
+	if( bch >= 0 ) jQuery(".bchCoin_change").addClass("greenup"); else jQuery(".bchCoin_change").addClass("purpledown");
+	if( xlm >= 0 ) jQuery(".xlmCoin_change").addClass("greenup"); else jQuery(".xlmCoin_change").addClass("purpledown");
+
+	jQuery(".dashCoin_change").html( dash + "%");
+	jQuery(".ethCoin_change").html( eth + "%");
+	jQuery(".bitCoin_change").html( btc + "%");
+	jQuery(".liteCoin_change").html( usd + "%");
+	jQuery(".xrpCoin_change").html( xrp + "%");
+	jQuery(".xmrCoin_change").html( xmr + "%");
+	jQuery(".bchCoin_change").html( bch + "%");
+	jQuery(".xlmCoin_change").html( bch + "%");
+
+    // VOLUME INFORMATION
+    jQuery(".dashCoin_volume").html('Volume $' + data.RAW.DASH.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".ethCoin_volume").html('Volume $' + data.RAW.ETH.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".bitCoin_volume").html('Volume $' + data.RAW.BTC.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".liteCoin_volume").html('Volume $' + data.RAW.LTC.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".xrpCoin_volume").html('Volume $' + data.RAW.XRP.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".xmrCoin_volume").html('Volume $' + data.RAW.XMR.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".bchCoin_volume").html('Volume $' + data.RAW.BCH.USD.VOLUME24HOUR.toFixed(2));
+	jQuery(".xlmCoin_volume").html('Volume $' + data.RAW.XLM.USD.VOLUME24HOUR.toFixed(2));
+
+});
+
+</script>
+
+
+<script type="text/javascript">
+	var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+	var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+	
+	function GetClock(){
+	var tzOffset = 0;//set this to the number of hours offset from UTC
+	
+	var d=new Date();
+	var dx=d.toGMTString();
+	dx=dx.substr(0,dx.length -3);
+	d.setTime(Date.parse(dx))
+	d.setHours(d.getHours()+tzOffset);
+	var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
+	var nhour=d.getHours(),nmin=d.getMinutes(),ap;
+	if(nhour==0){ap=" AM";nhour=12;}
+	else if(nhour<12){ap=" AM";}
+	else if(nhour==12){ap=" PM";}
+	else if(nhour>12){ap=" PM";nhour-=12;}
+	
+	if(nmin<=9) nmin="0"+nmin;
+	
+	document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+" "+nhour+":"+nmin+ap+"";
+	}
+	
+	window.onload=function(){
+	GetClock();
+	setInterval(GetClock,1000);
+	}
+	</script>
+
+  
+</head>
+
+<body>
+	
+	
+	
+<section class="main_wrap">
+  <header class="main_header">
+    <section class="nav_wrap slideInDown wow">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="logo"><a href="?a=home"><img src="styles/images/logo.png" alt=""></a></div>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-12">
+            <nav class="nav_inside">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i> </button>
+              <a class="navbar-brand page-scroll hide" href="?a=home"><img src="styles/images/logo.png" alt="" /></a>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li><a href="?a=home">Home</a></li>
+                  <li><a href="?a=cust&page=about">About Us</a></li>
+                  <li><a href="?a=cust&page=howto">get started</a></li>
+                  <li><a href="?a=cust&page=affiliate">affiliate</a></li>
+                  <li><a href="?a=faq">faq</a></li>
+                  <li><a href="?a=bounty">Bounty</a></li>
+                  <li><a href="?a=support">support</a></li>
+                                    <li class="login"><a href="?a=login">login</a></li>
+                  <li class="signup"><a href="?a=signup">signup</a></li> 
+                                    </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <section class="banner_wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="banner_infos banner_infos_sub">
+
+
+              <h1 class="bounceInDown wow">Registration completed!</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+        </header>	
+	
+ <main class="main_main">	
+
+<div class="inside_wrap zoomIn wow">
+  <div class="inside_inner">
+    <div style="text-align:center;">       
+
+
+
+<font color="#F7A908"><h3>Thank you for registration!</h3></font><br>
+
+<h5>
+
+Thank you for joining our program.<br>
+You are now an official member of this program. You can login to your account<br> to start investing with us and use all the services that are available for our members.
+<br>
+<br>
+
+<b>Important:</b> Do not provide your login and password to anyone!
+</h5>
+
+
+
+
+</div>
+  </div>
+</div>
+ </main>  
+ <footer class="main_footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12">
+          <div class="footerlogo">
+            <h2><img src="styles/images/footerlogo-min.png" alt=""></h2>
+            <p>&copy; COPYRIGHT 2020. Empire Crypto-Trading LTD. 
+              ALL RIGHTS RESERVED</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="footerlinks">
+            <h4>quick links:</h4>
+            <ul>
+              <li><a href="?a=home">HOME</a></li>
+              <li><a href="?a=cust&page=about">ABOUT US</a></li>
+              <li><a href="?a=faq">FAQ</a></li>
+            </ul>
+            <ul>
+              <li><a href="?a=support">SUPPORT</a></li>
+              <li><a href="?a=rules">TERMS &amp; CONDITIONS</a></li>
+              <li><a href="?a=cust&page=affiliate">AFFILIATES</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="footerdetails">
+            <h4>contacts:</h4>
+            <p class="footeremail"><a href="mailto:admint@empirecrypto-tradingltd.com">admin@empirecrypto-tradingltd.com</a></p>
+            <p class="footerlocation">212 Violet Road, London, United
+              Kingdom, E3 3AE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
+</body>
+</html> 
